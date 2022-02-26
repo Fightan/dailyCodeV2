@@ -1,0 +1,18 @@
+{
+    "name": "disii/daily-code-v2",
+    "autoload": {
+        "psr-4": {
+            "app\\": ["src/models/", "vendor/core/"]
+        }
+    },
+    "authors": [
+        {
+            "name": "Fightan",
+            "email": "daysi.vakhaev@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/var-dumper": "^6.0",
+        "altorouter/altorouter": "^2.0"
+    }
+}

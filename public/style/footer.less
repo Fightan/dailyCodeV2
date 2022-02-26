@@ -1,0 +1,38 @@
+@primaryColor: #88CCF1;
+@secondaryColor: #3587A4;
+@ternaryColor: #39393A;
+
+#footer{
+    padding-bottom: 100px;;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(0.2rem);
+
+    .row{
+        height: 76px;
+    }
+
+    .menu{
+        margin-top: 1px;
+    }
+
+    .link{
+            text-align: center;
+            font-weight: bold;
+            aspect-ratio: 1.5;
+            height: 100%;
+            transition: all 0.3s ease-in-out;
+
+            span{
+                text-align: center;
+                border-bottom: 3px solid transparent;
+                transition: all 0.3s ease-in-out;
+            }
+
+            &:hover{
+                background-color: rgba(240, 240, 240, 0.7);
+                span{
+                    border-bottom: 3px solid @secondaryColor;
+                }
+            }
+        }
+}
