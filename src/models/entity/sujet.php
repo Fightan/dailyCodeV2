@@ -1,5 +1,7 @@
 <?php
-    namespace app;
+    namespace app\models\entity;
+    use app\EntityRepository;
+    use app\app;
 
     class sujet extends EntityRepository{
         private static $sujets;

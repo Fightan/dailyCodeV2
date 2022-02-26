@@ -2,7 +2,7 @@
     "name": "disii/daily-code-v2",
     "autoload": {
         "psr-4": {
-            "app\\": ["src/models/", "vendor/core/"]
+            "app\\": ["src/", "vendor/core/"]
         }
     },
     "authors": [

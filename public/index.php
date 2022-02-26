@@ -12,6 +12,7 @@
     $rooter->map("GET", "/accueil", "accueil");
     $rooter->map("GET", "/articles", "articles");
     $rooter->map("GET", "/forum", "forum");
+    $rooter->map("POST", "/forum", "forum");
     $rooter->map("GET", "/contact", "contact");
     $rooter->map("GET", "/compte", "compte");
     $rooter->map("GET", "/a-propos", "a-propos");
@@ -21,6 +22,8 @@
 
     //A partir d'ici, tous l'affichage fait à partir de require est stocké dans la mémoire tampon
     ob_start();
+    dump($match);
+    dump($_POST);
     if($match){
         if(is_callable($match["target"])){
             $pageContent = call_user_func_array($match["target"], $match["params"]);
