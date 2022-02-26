@@ -1,7 +1,7 @@
 <?php
     namespace app;
 
-    class table{
+    class EntityRepository{
 
         public function __get($key){
             $method = "get".ucfirst($key);
@@ -16,6 +16,5 @@
             require("./controllers/".static::TABLE.".php");
         }
     } 
-
 
 ?>

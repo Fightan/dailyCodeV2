@@ -1,7 +1,7 @@
 <?php
     namespace app;
 
-    class sujet extends table{
+    class sujet extends EntityRepository{
         private static $sujets;
         private $id_sujet;
         private $nom_sujet;

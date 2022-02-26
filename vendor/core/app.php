@@ -14,7 +14,7 @@
 
         public static function DB(){
             if(self::$database === null){
-                self::$database = database::getInstance(self::$db_name, self::$db_user, self::$db_pass, self::$db_host);
+                self::$database = EntityManager::getInstance(self::$db_name, self::$db_user, self::$db_pass, self::$db_host);
             }
             return self::$database;
         }

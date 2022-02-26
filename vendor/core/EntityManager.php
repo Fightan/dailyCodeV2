@@ -1,7 +1,7 @@
 <?php
     namespace app;
 
-    class database{
+    class EntityManager{
 
         private static $_instance;
         private $db_name;
@@ -12,7 +12,7 @@
 
         public static function getInstance($name, $user="root", $pass="root", $host="localhost"){
             if(is_null(self::$_instance)){
-                self::$_instance = new database($name, $user, $pass, $host);
+                self::$_instance = new EntityManager($name, $user, $pass, $host);
             }
             return self::$_instance;
         }
@@ -27,7 +27,7 @@
         private function PDO(){
             if($this->db === null){
                 // $this->db = new \PDO("mysql:host=".$this->db_host.";dbname=".$this->db_name.";charset=utf8", $this->db_user, $this->db_pass);
-                $this->db = new \PDO('sqlite:./data.db');
+                $this->db = new \PDO('sqlite:data.db');
             }
         }
 

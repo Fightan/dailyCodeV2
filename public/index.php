@@ -15,6 +15,7 @@
     $rooter->map("GET", "/contact", "contact");
     $rooter->map("GET", "/compte", "compte");
     $rooter->map("GET", "/a-propos", "a-propos");
+    $rooter->map("GET", "/dashboard", "dashboard");
     $rooter->map("GET", "/forum?m=[*]", "message");
     $match = $rooter->match();
 
@@ -31,7 +32,6 @@
     }
 
     $pageContent = ob_get_clean();
-    ob_end_clean();
 
     require "views/share/layout.php";
 ?>

@@ -22,7 +22,7 @@
                     foreach(sujet::getAll() as $message){
                         echo <<<html
                             <tr>
-                                <td class="link"><a href="?p=forum&m=$message->id_sujet">$message->nom_sujet</a></td>
+                                <td class="link"><a href="?m=$message->id_sujet">$message->nom_sujet</a></td>
                                 <td>$message->auteur</td>
                                 <td>$message->reponses</td>
                                 <td>$message->date</td>
