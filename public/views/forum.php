@@ -18,7 +18,7 @@
                 </tr>
                 <?php
                 use app\models\entity\sujet;
-                    foreach(sujet::getAll() as $message){
+                    foreach(sujet::all() as $message){
                         echo <<<html
                             <tr>
                                 <td class="link"><a href="?m=$message->id_sujet">$message->nom_sujet</a></td>

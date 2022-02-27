@@ -2,15 +2,13 @@
     namespace app\models\entity;
     use app\EntityRepository;
     use app\app;
-
     class sujet extends EntityRepository{
-        private static $sujets;
-        private $id_sujet;
-        private $nom_sujet;
-        private $message;
-        private $auteur;
-        private $reponses;
-        private $date;
+        protected $id_sujet;
+        protected $nom_sujet;
+        protected $message;
+        protected $auteur;
+        protected $reponses;
+        protected $date;
         const TABLE = "forum";
        
         public function __construct($id_sujet = "00000", $nom_sujet = "New subject", $message = "New message", $auteur = "Anonym", $reponses = 0, $date = "Today"){
@@ -22,17 +20,6 @@
                 $this->reponses = $reponses;
                 $this->date = $date;
             }
-        }
-
-        public static function addSujet(){
-            app::DB()->prepare("INSERT INTO ".static::TABLE." VALUES (:id_sujet, :nom_sujet, :message, :auteur, :reponses, :date)", array(":id_sujet"=>$_POST["title"].rand(1,1000), ":nom_sujet"=>$_POST["title"], ":message"=>$_POST["editor"], ":auteur"=>"Fightan", ":reponses"=>1, ":date"=>"Aujourd'hui"), get_called_class());
-        }
-
-        public static function getAll(){
-            if(is_null(self::$sujets)){
-                self::$sujets = self::all();
-            }
-            return self::$sujets;
         }
 
         public function getId_sujet()

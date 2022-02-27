@@ -22,8 +22,6 @@
 
     //A partir d'ici, tous l'affichage fait à partir de require est stocké dans la mémoire tampon
     ob_start();
-    dump($match);
-    dump($_POST);
     if($match){
         if(is_callable($match["target"])){
             $pageContent = call_user_func_array($match["target"], $match["params"]);
