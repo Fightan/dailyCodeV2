@@ -17,11 +17,13 @@ use Symfony\Component\VarDumper\VarDumper;
         public static function add($object){
             $attributes = "";
             $array = array();
+
             foreach(get_object_vars($object) as $name => $attr){
                 $attributes .= ":" .$name. ", ";
-                $array[$name] = $attr;
+                $array[":".$name] = $attr;
             }
             $attributes = rtrim($attributes, ", ");
+
             $sql = "INSERT INTO ".static::TABLE." VALUES (".$attributes.")";
             app::DB()->prepare($sql, $array, get_called_class());
         }
