@@ -1,7 +1,7 @@
 <?php
     namespace app;
 
-use Symfony\Component\VarDumper\VarDumper;
+    use Symfony\Component\VarDumper\VarDumper;
 
     class EntityRepository{
 
@@ -11,20 +11,20 @@ use Symfony\Component\VarDumper\VarDumper;
         }
 
         public static function all(){
-            return app::DB()->query("select * from ".static::TABLE, get_called_class());
+            return app::DB()->query("select * from ".static::$table, get_called_class());
         }
 
-        public static function add($object){
+        public function add(){
             $attributes = "";
             $array = array();
 
-            foreach(get_object_vars($object) as $name => $attr){
+            foreach(get_object_vars($this) as $name => $attr){
                 $attributes .= ":" .$name. ", ";
                 $array[":".$name] = $attr;
             }
             $attributes = rtrim($attributes, ", ");
 
-            $sql = "INSERT INTO ".static::TABLE." VALUES (".$attributes.")";
+            $sql = "INSERT INTO ".static::$table." VALUES (".$attributes.")";
             app::DB()->prepare($sql, $array, get_called_class());
         }
     } 

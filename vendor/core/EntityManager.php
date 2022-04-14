@@ -26,8 +26,12 @@
         
         private function PDO(){
             if($this->db === null){
-                // $this->db = new \PDO("mysql:host=".$this->db_host.";dbname=".$this->db_name.";charset=utf8", $this->db_user, $this->db_pass);
-                $this->db = new \PDO('sqlite:data.db');
+                try{
+                    // $this->db = new \PDO("mysql:host=".$this->db_host.";dbname=".$this->db_name.";charset=utf8", $this->db_user, $this->db_pass);
+                    $this->db = new \PDO('sqlite:data.db');
+                }catch(PDOException $exception){
+                    echo "Erreur : " . $exception->getMessage();
+                }
             }
         }
 

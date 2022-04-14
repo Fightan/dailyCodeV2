@@ -2,14 +2,15 @@
     namespace app\models\entity;
     use app\EntityRepository;
     use app\app;
-    class sujet extends EntityRepository{
+
+    class SujetEntity extends EntityRepository{
         protected $id_sujet;
         protected $nom_sujet;
         protected $message;
         protected $auteur;
         protected $reponses;
         protected $date;
-        const TABLE = "forum";
+        protected static $table = "forum";
        
         public function __construct($id_sujet = "00000", $nom_sujet = "New subject", $message = "New message", $auteur = "Anonym", $reponses = 0, $date = "Today"){
             if($id_sujet !== "00000"){
