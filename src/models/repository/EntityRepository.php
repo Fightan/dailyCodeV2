@@ -1,7 +1,6 @@
 <?php
-    namespace app;
-
-    use Symfony\Component\VarDumper\VarDumper;
+    namespace app\models\repository;
+    use app\app;
 
     class EntityRepository{
 
@@ -26,6 +25,22 @@
 
             $sql = "INSERT INTO ".static::$table." VALUES (".$attributes.")";
             app::DB()->prepare($sql, $array, get_called_class());
+        }
+
+        public static function select($select, $where, $orderBy){
+            $sql = "SELECT ".$select." FROM ".static::$table;
+            if($where != ""){
+                $sql .= " WHERE ".$where;
+            }
+            if($orderBy != ""){
+                $sql .= " ORDER BY ".$orderBy;
+            }
+            return app::DB()->query($sql, get_called_class());
+        }
+
+        public static function delete($where){
+            $sql = "DELETE FROM ".static::$table." WHERE ".$where;
+            app::DB()->query($sql, get_called_class());
         }
     } 
 

@@ -29,7 +29,7 @@ h2{
 
 h3{
     font-size: 1.25em;
-    color: #555;
+    color: @primaryColor;
 }
 
 a{
@@ -57,7 +57,6 @@ a{
         border: 1px solid @forumColor;
         margin-bottom: 25px;
         border-radius: 10px;
-        overflow: hidden;
         padding-right: 0px;
         padding-left: 0px;
         animation: grow 0.75s;
@@ -68,9 +67,6 @@ a{
 
             tr:not(#main){
                 transition: transform 0.05s ease-in-out;
-                &:hover{
-                    transform: translateX(10px);
-                }
             }
 
             th, td {
@@ -94,6 +90,10 @@ a{
                 }
             }
 
+            tr>td{
+                vertical-align: middle;
+            }
+
             tr:nth-child(odd){
                 background-color: white;
                 animation-fill-mode: forwards;
@@ -106,12 +106,62 @@ a{
                 animation: grow 0.75s;
             }
         }
+
+        .dp{
+            position: relative;
+        }
+
+        input[type=checkbox]{
+            padding: 0px;
+            background: none;
+            border: none;
+        }
+
+        .dp-menu{
+            display: none;
+            width: 150px;
+            text-align: center;
+            padding: 5px 0px;
+            background-color: white;
+            border: 1px solid @forumColor;
+            border-radius: 10px;
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0px;
+            z-index: 99;
+        }
+
+        .showDp{
+            display: block;
+        }
+        
+        .item{
+            display: block;
+            cursor: pointer;
+            padding: 10px 20px;
+            width: 100%;
+            transition: all 0.1s ease-in-out;
+
+            &:hover{
+                text-decoration: none!important;
+                background-color: @forumColor;
+            }
+        }
+        
+        .icon{
+            padding: 5px 10px;
+            cursor: pointer;
+        }
     }
 
     .row>*{
         padding: 0px;
     }
 
+    #connect{
+        color: @secondaryColor;
+    }
 
     form{
         #sendForm{
@@ -127,6 +177,7 @@ a{
         .sendFormInactive{
             background-color: @primaryColor;
         }
+
         .sendFormActive{
             background-color: @secondaryColor;
         }
@@ -139,6 +190,30 @@ a{
             border: 1px solid @forumColor;
             border-radius: 10px;
             outline: none;
+        }
+
+        .button{
+            padding: 10px 15px;
+            background-color: @secondaryColor;
+            border-radius: 10px;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -o-user-select: none;
+            user-select: none;
+        }
+
+        .active{
+            background-color: @primaryColor;
+        }
+
+        .valid{
+            color: rgb(27, 221, 60);
+        }
+
+        .invalid{
+            color: red;
         }
 
         #categorie{
@@ -168,6 +243,43 @@ a{
         }
     }
 
+    .popup{
+        display: none;
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        background-color: rgba(225, 225, 225, 0.8);
+        top: 0px;
+        left: 0px;
+        z-index: 99;
+
+        .popup-content{
+            width: 400px;
+            background-color: white;
+            padding: 30px 0px;
+            border: 1px solid @forumColor;
+            border-radius: 10px;
+
+            h3{
+                margin-top: 0px;
+            }
+
+            .popup-body{
+                p{
+                    margin-bottom: 12px;
+                }
+
+                #delete{
+                    margin-right: 20px;
+                }
+            }
+        }
+    }
+
+    .showPopup{
+        display: flex;
+    }
+
     .trumbowyg-box{
         animation-fill-mode: forwards;
         animation: grow 0.5s;
@@ -183,7 +295,7 @@ a{
     }
 
     .notWrong{
-        border: 1px solid green;
+        border: 1px solid rgb(27, 221, 60);
     }
     
     .trumbowyg-button-pane{

@@ -1,9 +1,8 @@
 <?php
     namespace app\models\entity;
-    use app\EntityRepository;
-    use app\app;
+    use app\models\repository\EntityRepository;
 
-    class CategorieEntity extends EntityRepository{
+    class Categorie extends EntityRepository{
         protected $id;
         protected $nom;
         protected static $table = "categories";

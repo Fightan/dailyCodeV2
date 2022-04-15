@@ -1,38 +1,103 @@
+var isTitleValid = false;
+var isCategoryValid = false;
+var isMessageValid = false;
+var isCategoriesShown = false;
+
+var regexTitle = /^[A-zÀ-ù0-9 '?!]{5,40}$/;
+
 $(function(){
     $("#editor").trumbowyg({
         autogrow: true
     }).on("tbwchange", function(){
+        var val = $("#editor").html();
 
+        if(val.length > 15){
+            isMessageValid = true;
+            $("#editor").css("color", "rgb(27,221,60)");
+            isMessageValid = true;
+        }
+        else{
+            isMessageValid = false;
+            $("#editor").css("color", "red");	
+            isMessageValid = false;
+        }
+        checkForm();
     });
 
-    // $(".trumbowyg-box").on("focusin", function(){
-    //     $(this).removeClass("editorInactive").addClass("editorActive");
-    // });
-    // $(".trumbowyg-box").on("focusout", function(){
-    //     $(this).addClass("editorInactive").removeClass("editorActive");
-    // });
+    $(".trumbowyg-box").on("focusin", function(){
+        $(this).removeClass("editorInactive").addClass("editorActive");
+    });
+    $(".trumbowyg-box").on("focusout", function(){
+        $(this).addClass("editorInactive").removeClass("editorActive");
+    });
 
-    var regexTitle = /^[a-zA-Z2-9]*$/;
+    $("#sendForm").attr("disabled", true);
+
     $("#title").on("input", function(){
         var val = $(this).val();
 
         if(!regexTitle.test(val)){
             $(this).addClass("invalid").removeClass("valid");
+            isTitleValid = false;
         }else{
             $(this).addClass("valid").removeClass("invalid");
+            isTitleValid = true;
         }
+
+        checkForm();
     });
 
-    // $("#form").on("submit", function(event){
-    //     // if($("#title").val().match(checkTitle)){
-    //     //     event.preventDefault();
-    //     // }else{
-    //     //     $.post("?p=forum", $(this).serialize(), function(data){
-    //     //         console.log(data);
-    //     //     })
-    //     // }
+    $(".button").on("change", function(){
+        if($(".button>input[type=checkbox]:checked").length > 0){
+            isCategoryValid = true;
+        }else{
+            isCategoryValid = false;
+        }
 
-    // })
+        $(this).toggleClass("active")
+        checkForm();
+    })
+
+    $(".dp").on("click", function(e){
+        if(isCategoriesShown == false){
+            isCategoriesShown = true;
+            $(this).find(".dp-menu").addClass("showDp");
+        }else{
+            isCategoriesShown = false;
+            $(this).find(".dp-menu").removeClass("showDp");
+        }
+        e.stopPropagation();
+    })
+
+    $(".delete").on("click", function(e){
+        $(".popup").addClass("showPopup");
+        var id = $(this).attr("data-id");
+        $("#delete").val(id);
+        e.stopPropagation(); 
+    })
+
+    $("#delete").on("click", function(){
+    })
+
+    $(".popup #cancel").on("click", function(){
+        $(".popup").removeClass("showPopup");
+    })
+
+    $("body").on("click", function(e){
+        $(".dp-menu").removeClass("showDp");
+        isCategoriesShown = false;
+        e.stopPropagation();
+    })
+
+    function checkForm(){
+        if(isTitleValid && isCategoryValid && isMessageValid){
+            $("#sendForm").attr("disabled", false);
+            $("#sendForm").addClass("sendFormActive").removeClass("sendFormInactive");
+        }else{
+            $("#sendForm").attr("disabled", true);
+            $("#sendForm").addClass("sendFormInactive").removeClass("sendFormActive");
+        }
+    }
 
     if(window.history.replaceState){
         window.history.replaceState( null, null, window.location.href );

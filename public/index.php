@@ -3,6 +3,7 @@
     ini_set("display_errors", 1);
     //Fait des require des fichiers .php du dossier /vendor
     require("../vendor/autoload.php");
+    session_start();
     
     //Déclare un nouveau rooter
     $rooter = new AltoRouter();
@@ -15,6 +16,11 @@
     $rooter->map("POST", "/forum", "forum");
     $rooter->map("GET", "/contact", "contact");
     $rooter->map("GET", "/compte", "compte");
+    $rooter->map("GET", "/connexion", "connexion");
+    $rooter->map("POST", "/connexion", "connexion");
+    $rooter->map("GET", "/deconnexion", "deconnexion");
+    $rooter->map("GET", "/inscription", "inscription");
+    $rooter->map("POST", "/inscription", "inscription");
     $rooter->map("GET", "/a-propos", "a-propos");
     $rooter->map("GET", "/dashboard", "dashboard");
     $rooter->map("GET", "/forum?m=[*]", "message");
