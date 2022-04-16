@@ -41,6 +41,12 @@
             return $response->fetchAll(\PDO::FETCH_CLASS, $class_name);
         }
 
+        public function queryAssoc($sql){
+            $this->PDO();
+            $response = $this->db->query($sql);
+            return $response->fetchAll(\PDO::FETCH_ASSOC);
+        }
+
         public function prepare($sql, $values, $class_name){
             $this->PDO();
             $response = $this->db->prepare($sql);

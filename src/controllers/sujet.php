@@ -4,12 +4,11 @@
     use app\models\entity\Categorie;
     use app\models\entity\User;
 
-    $titre = "Forum";
+    $titre = Sujet::select("*", 'id_sujet = "'.$_GET["m"].'"', "")[0]->nom_sujet;
     app::addRessource("https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/ui/trumbowyg.min.css");
     app::addRessource("https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/trumbowyg.min.js");
-    app::addRessource("https://www.kryogenix.org/code/browser/sorttable/sorttable.js");
-    app::addRessource("style/forum.less");
-    app::addRessource("js/forum.js");
+    app::addRessource("style/sujet.less");
+    app::addRessource("js/sujet.js");
 
     //Afficher ou non l'interface d'ajout d'un nouveau sujet
     $nouveauSujet = false;

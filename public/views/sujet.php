@@ -24,13 +24,13 @@
                     use app\models\entity\Sujet;
                     use app\models\entity\Categorie;
 
-                    foreach($sujets as $sujet){
-                        $date = date("Y-m-d", strtotime($sujet->date));
+                    foreach($sujets as $message){
+                        $date = date("Y-m-d", strtotime($message->date));
                         if($date === date("Y-m-d")){
                             $date = "Aujourd'hui";
                         }
                         if($user != ""){
-                            if($sujet->auteur === $user->username){
+                            if($message->auteur === $user->username){
                                 $visibility = "d-block";
                             }else{
                                 $visibility = "d-none";
@@ -40,18 +40,18 @@
                         }
                         echo <<<html
                             <tr>
-                                <td class="link"><a href="sujet?m=$sujet->id_sujet">$sujet->nom_sujet</a></td>
-                                <td>$sujet->auteur</td>
-                                <td class="text-center">$sujet->reponses</td>
-                                <td>$sujet->categories</td>
+                                <td class="link"><a href="?m=$message->id_sujet">$message->nom_sujet</a></td>
+                                <td>$message->auteur</td>
+                                <td class="text-center">$message->reponses</td>
+                                <td>$message->categories</td>
                                 <td>$date</td>
                                 <td>
                                     <div class="dp" data-active="false">
                                         <input id="showMenu" class="d-none" type="checkbox"/>
                                         <i class="icon fa-solid fa-ellipsis-vertical"></i>
                                         <div class="dp-menu">
-                                            <a href="sujet?m=$sujet->id_sujet" class="item voir">Voir</a>
-                                            <span class="item delete $visibility" data-id="$sujet->id_sujet">Supprimer</span>
+                                            <a href="/message" class="item voir">Voir</a>
+                                            <span class="item delete $visibility" data-id="$message->id_sujet">Supprimer</span>
                                         </div>
                                     </div>
                                 </td>

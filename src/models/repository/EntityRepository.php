@@ -42,6 +42,11 @@
             $sql = "DELETE FROM ".static::$table." WHERE ".$where;
             app::DB()->query($sql, get_called_class());
         }
+
+        public static function count(){
+            $sql = "SELECT COUNT(*) FROM ".static::$table;
+            return app::DB()->queryAssoc($sql)[0]["COUNT(*)"];
+        }
     } 
 
 ?>

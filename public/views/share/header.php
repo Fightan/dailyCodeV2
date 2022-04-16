@@ -20,7 +20,11 @@
                         $method = "deconnexion?p=".ltrim($_SERVER["REQUEST_URI"], "/");
                         $phrase = "Déconnexion";
                     }else{
-                        $method = "connexion?p=".ltrim($_SERVER["REQUEST_URI"], "/");
+                        if(!isset($_GET["p"])){
+                            $method = "connexion?p=".ltrim($_SERVER["REQUEST_URI"], "/");
+                        }else{
+                            $method = "connexion?p=".$_GET["p"];
+                        }
                         $phrase = "Connexion";
                     }
                     echo <<<html
