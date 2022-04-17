@@ -83,6 +83,24 @@
         //     $this->date = $date;
         //     return $this;
         // }
+
+        /**
+         * Get the value of table
+         */ 
+        public function getTable()
+        {
+                return self::$table;
+        }
+
+        /**
+         * Set the value of table
+         *
+         * @return  self
+         */ 
+        public function setTable($table)
+        {
+                self::$table = $table;
+        }
     }
 
 ?>

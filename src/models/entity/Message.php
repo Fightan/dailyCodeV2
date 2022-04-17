@@ -97,6 +97,24 @@
 
                 return $this;
         }
+
+        /**
+         * Get the value of table
+         */ 
+        public static function getTable()
+        {
+                return self::$table;
+        }
+
+        /**
+         * Set the value of table
+         *
+         * @return  self
+         */ 
+        public static function setTable($table)
+        {
+                self::$table = $table;
+        }
     }
 
 ?>

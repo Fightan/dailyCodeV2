@@ -35,7 +35,11 @@
     if(isset($_POST["title"]) && isset($_POST["editor"]) && isset($_POST["categories"])){
         $categories = implode(", ", $_POST["categories"]);
         $sujet = new Sujet(hash("md5", $_POST["title"]), $_POST["title"], $_POST["editor"], $categories, $_SESSION["user"]->username, "0", date("Y-m-d H:i:s"));
-        $sujet->add();
+
+        Message::setTable("coucou");
+        // $sujet->add();
+
+        // Message::create();
     }
 
     //On récupère le nombre de pages afin d'afficher les boutons 1, 2, 3... pour changer de page
@@ -61,7 +65,6 @@
 
     //On récupère toutes les catégories pour les afficher dans l'ajout d'un sujet
     $categories = Categorie::all();
-    Message::create();
     require "../public/views/share/header.php";
     require "../public/views/forum.php";
     require "../public/views/share/footer.php";
