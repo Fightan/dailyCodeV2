@@ -47,11 +47,121 @@ a{
 @ternaryColor: #39393A;
 @forumColor: rgb(225, 225, 225);
 
+.card{
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid @forumColor;
+    flex-direction: row;
+    margin-bottom: 20px;
+
+    .col-6{
+        padding: 0px;
+    }
+
+    .bleu{
+        display: block;
+        padding: 15px 40px;
+        background-color: @primaryColor;
+        color: white;
+        border-bottom: 1px solid @forumColor;
+        &.auteur{
+            border-top-left-radius: 10px;
+        }
+        &.date{
+            text-align: end;
+            border-top-right-radius: 10px;
+        }
+    }
+
+    .item{
+        color: black;
+    }
+
+    .rank{
+        padding-left: 30px;
+        color:#3586a483;
+    }
+
+    .message{
+        padding: 15px 40px;
+        min-height: 80px;
+    }
+}
+
+.dp{
+    position: relative;
+    width: inherit;
+}
+
+input[type=checkbox]{
+    padding: 0px;
+    background: none;
+    border: none;
+}
+
+.dp-menu{
+    display: none;
+    width: 150px;
+    text-align: center;
+    padding: 5px 0px;
+    background-color: white;
+    border: 1px solid @forumColor;
+    border-radius: 10px;
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0px;
+    z-index: 99;
+}
+
+.showDp{
+    display: block;
+}
+
+.item{
+    display: block;
+    cursor: pointer;
+    padding: 10px 20px;
+    width: 100%;
+    transition: all 0.1s ease-in-out;
+
+    &:hover{
+        text-decoration: none!important;
+        background-color: @forumColor;
+    }
+}
+
+.icon{
+    padding: 2px 10px;
+    cursor: pointer;
+}
+
+#pages{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 20px 0px;
+
+    a{
+        padding: 5px 10px;
+        color: @secondaryColor;
+        font-weight: bold;
+        text-decoration: underline;
+
+        &.currentPage{
+            font-weight: normal;
+            text-decoration: none;
+            pointer-events: none;
+        }
+    }
+}
+
 #forum{ 
     min-height: 100vh;
     margin-top: 25px;
     margin-bottom: 25px;
     padding: 0px;
+
 
     .row:first-child{
         margin-bottom: 25px;
@@ -60,139 +170,7 @@ a{
         animation: grow 0.75s;
         animation-fill-mode: forwards;
 
-        #table{
-            width: 100%;
-            border-radius: 10px;
 
-            tr:not(#main){
-                transition: transform 0.05s ease-in-out;
-            }
-
-            th, td {
-                padding: 1em;
-                padding-left: 2em;
-                padding-right: 2em;
-            }
-
-            th{
-                font-weight: bold;
-                background-color: @forumColor;
-                -webkit-user-select: none;
-                -khtml-user-select: none;
-                -moz-user-select: none;
-                -o-user-select: none;
-                user-select: none;
-            }
-
-            td{
-                font-size: 0.9em;
-
-                a{
-                    &:hover{
-                        text-decoration: underline;
-                    }
-                }
-            }
-
-            tr:last-child td:first-child {
-                border-bottom-left-radius: 10px;
-            }
-
-            tr:last-child td:last-child {
-                border-bottom-right-radius: 10px;
-            }
-
-            tr:first-child th:first-child {
-                border-top-left-radius: 10px;
-            }
-
-            tr:first-child th:last-child {
-                border-top-right-radius: 10px;
-            }
-
-            tr>td{
-                vertical-align: middle;
-            }
-
-            tr:nth-child(odd){
-                background-color: white;
-                animation-fill-mode: forwards;
-                animation: grow 0.5s;
-                
-            }
-            tr:nth-child(even){
-                background-color: @forumColor;
-                animation-fill-mode: forwards;
-                animation: grow 0.75s;
-            }
-        }
-
-        .dp{
-            position: relative;
-        }
-
-        input[type=checkbox]{
-            padding: 0px;
-            background: none;
-            border: none;
-        }
-
-        .dp-menu{
-            display: none;
-            width: 150px;
-            text-align: center;
-            padding: 5px 0px;
-            background-color: white;
-            border: 1px solid @forumColor;
-            border-radius: 10px;
-            display: none;
-            position: absolute;
-            top: 100%;
-            right: 0px;
-            z-index: 99;
-        }
-
-        .showDp{
-            display: block;
-        }
-        
-        .item{
-            display: block;
-            cursor: pointer;
-            padding: 10px 20px;
-            width: 100%;
-            transition: all 0.1s ease-in-out;
-
-            &:hover{
-                text-decoration: none!important;
-                background-color: @forumColor;
-            }
-        }
-        
-        .icon{
-            padding: 5px 10px;
-            cursor: pointer;
-        }
-
-        #pages{
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            padding: 20px 0px;
-
-            a{
-                padding: 5px 10px;
-                color: @secondaryColor;
-                font-weight: bold;
-                text-decoration: underline;
-
-                &.currentPage{
-                    font-weight: normal;
-                    text-decoration: none;
-                    pointer-events: none;
-                }
-            }
-        }
     }
 
     .row>*{

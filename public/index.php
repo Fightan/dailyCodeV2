@@ -3,6 +3,7 @@
     ini_set("display_errors", 1);
     //Fait des require des fichiers .php du dossier /vendor
     require("../vendor/autoload.php");
+    session_start();
     
     //Déclare un nouveau rooter
     $rooter = new AltoRouter();
@@ -11,13 +12,15 @@
     $rooter->map("GET", "/", "accueil");
     $rooter->map("GET", "/accueil", "accueil");
     $rooter->map("GET", "/articles", "articles");
-    $rooter->map("GET", "/forum", "forum");
-    $rooter->map("POST", "/forum", "forum");
+    $rooter->map("GET|POST", "/forum", "forum");
+    $rooter->map("GET|POST", "/sujet", "sujet");
     $rooter->map("GET", "/contact", "contact");
     $rooter->map("GET", "/compte", "compte");
+    $rooter->map("GET|POST", "/connexion", "connexion");
+    $rooter->map("GET", "/deconnexion", "deconnexion");
+    $rooter->map("GET|POST", "/inscription", "inscription");
     $rooter->map("GET", "/a-propos", "a-propos");
     $rooter->map("GET", "/dashboard", "dashboard");
-    $rooter->map("GET", "/forum?m=[*]", "message");
     $match = $rooter->match();
 
     //A partir d'ici, tous l'affichage fait à partir de require est stocké dans la mémoire tampon
