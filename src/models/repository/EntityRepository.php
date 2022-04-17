@@ -24,6 +24,7 @@
             $attributes = rtrim($attributes, ", ");
 
             $sql = "INSERT INTO ".static::$table." VALUES (".$attributes.")";
+            echo $sql;
             app::DB()->prepare($sql, $array, get_called_class());
         }
 
@@ -46,6 +47,21 @@
         public static function count(){
             $sql = "SELECT COUNT(*) FROM ".static::$table;
             return app::DB()->queryAssoc($sql)[0]["COUNT(*)"];
+        }
+
+        public static function create(){
+            $primaryKey = "";
+            $names = "";
+
+            foreach(get_object_vars(new static) as $name => $attr){
+                if($primaryKey == ""){
+                    $primaryKey = '"'.$name.'"';
+                }
+                $names .= '"'.$name.'", ';
+            }
+
+            $sql ="CREATE TABLE IF NOT EXISTS ".static::$table." (".$names." PRIMARY KEY(".$primaryKey."));";
+            echo $sql;
         }
     } 
 

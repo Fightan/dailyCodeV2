@@ -10,26 +10,28 @@
     app::addRessource("style/sujet.less");
     app::addRessource("js/sujet.js");
 
-    //Afficher ou non l'interface d'ajout d'un nouveau sujet
-    $nouveauSujet = false;
+    //Afficher ou non l'interface d'ajout d'un nouveau message
+    $nouveauMessage = false;
     $user = "";
-    //Si l'utilisateur est connecté on lui permet d'ajouter un sujet
+    //Si l'utilisateur est connecté on lui permet d'ajouter un message
     if(isset($_SESSION["user"])){
         $user = $_SESSION["user"];
-        $nouveauSujet = true;
+        $nouveauMessage = true;
     }
 
-    //Suppression d'un sujet du forum
+    //Suppression d'un message du forum
     //Si l'utilisateur est l'auteur du sujet alors il peut le supprimer
     date_default_timezone_set("Europe/Paris");
     if(isset($_POST["delete"])){
+        //TO DO : Vérifier que l'utilisateur est bien l'auteur du message
         $sujet = sujet::select("*", 'id_sujet = "'.$_POST["delete"].'"', "")[0];
         if($sujet->auteur === $_SESSION["user"]->username){
             $sujet->delete('id_sujet = "'.$_POST["delete"].'"');
         }
     }
 
-    //Ajout d'un nouveau sujet
+    //Ajout d'un nouveau message
+    //TO DO : Vérifier le formulaire et l'envoie du message
     if(isset($_POST["title"]) && isset($_POST["editor"]) && isset($_POST["categories"])){
         $categories = implode(", ", $_POST["categories"]);
         $sujet = new Sujet(hash("md5", $_POST["title"]), $_POST["title"], $_POST["editor"], $categories, $_SESSION["user"]->username, "0", date("Y-m-d H:i:s"));
@@ -61,7 +63,6 @@
     $categories = Categorie::all();
 
     require "../public/views/share/header.php";
-    require "../public/views/forum.php";
+    require "../public/views/sujet.php";
     require "../public/views/share/footer.php";
-
 ?>

@@ -47,7 +47,7 @@
                                 <td>$date</td>
                                 <td>
                                     <div class="dp" data-active="false">
-                                        <input id="showMenu" class="d-none" type="checkbox"/>
+                                        <input class="d-none showMenu" type="checkbox"/>
                                         <i class="icon fa-solid fa-ellipsis-vertical"></i>
                                         <div class="dp-menu">
                                             <a href="sujet?m=$sujet->id_sujet" class="item voir">Voir</a>

@@ -1,4 +1,25 @@
-<h1>Forum</h1>
+<div class="container">
+    <h1 class="text-start"><?=$titre?></h1>
+    <?php
+        
+    ?>
+    <div class="card row">
+        <div class="bleu auteur col-6">Auteur <span class="rank"><\Rank></span></div>
+        <div class="bleu date col-6 d-flex flex-row text-end justify-content-end">
+            <div class="dp" data-active="false">
+                <input class="d-none showMenu" type="checkbox"/>
+                Salut
+                <i class="icon fa-solid fa-ellipsis-vertical"></i>
+                    <div class="dp-menu">
+                        <a href="/message" class="item voir">Voir</a>
+                        <span class="item delete $visibility" data-id="$message->id_sujet">Supprimer</span>
+                    </div>
+                </div>
+        </div>
+        <div class="message">Coucou</div>
+    </div>
+</div>
+
 
 <div id="forum">
     <div class="container">
@@ -47,7 +68,7 @@
                                 <td>$date</td>
                                 <td>
                                     <div class="dp" data-active="false">
-                                        <input id="showMenu" class="d-none" type="checkbox"/>
+                                        <input class="d-none showMenu" type="checkbox"/>
                                         <i class="icon fa-solid fa-ellipsis-vertical"></i>
                                         <div class="dp-menu">
                                             <a href="/message" class="item voir">Voir</a>

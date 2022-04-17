@@ -3,6 +3,7 @@
     use app\models\entity\Sujet;
     use app\models\entity\Categorie;
     use app\models\entity\User;
+    use app\models\entity\Message;
 
     $titre = "Forum";
     app::addRessource("https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/ui/trumbowyg.min.css");
@@ -60,7 +61,7 @@
 
     //On récupère toutes les catégories pour les afficher dans l'ajout d'un sujet
     $categories = Categorie::all();
-
+    Message::create();
     require "../public/views/share/header.php";
     require "../public/views/forum.php";
     require "../public/views/share/footer.php";
