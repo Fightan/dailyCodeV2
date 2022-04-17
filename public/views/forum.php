@@ -40,7 +40,7 @@
                         }
                         echo <<<html
                             <tr>
-                                <td class="link"><a href="sujet?m=$sujet->id_sujet">$sujet->nom_sujet</a></td>
+                                <td class="link"><a href="sujet?m=sujet$sujet->id_sujet">$sujet->nom_sujet</a></td>
                                 <td>$sujet->auteur</td>
                                 <td class="text-center">$sujet->reponses</td>
                                 <td>$sujet->categories</td>

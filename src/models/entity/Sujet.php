@@ -87,7 +87,7 @@
         /**
          * Get the value of table
          */ 
-        public function getTable()
+        public static function getTable()
         {
                 return self::$table;
         }
@@ -97,7 +97,7 @@
          *
          * @return  self
          */ 
-        public function setTable($table)
+        public static function setTable($table)
         {
                 self::$table = $table;
         }
