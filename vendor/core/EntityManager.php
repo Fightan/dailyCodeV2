@@ -26,8 +26,12 @@
         
         private function PDO(){
             if($this->db === null){
-                // $this->db = new \PDO("mysql:host=".$this->db_host.";dbname=".$this->db_name.";charset=utf8", $this->db_user, $this->db_pass);
-                $this->db = new \PDO('sqlite:data.db');
+                try{
+                    // $this->db = new \PDO("mysql:host=".$this->db_host.";dbname=".$this->db_name.";charset=utf8", $this->db_user, $this->db_pass);
+                    $this->db = new \PDO('sqlite:data.db');
+                }catch(PDOException $exception){
+                    echo "Erreur : " . $exception->getMessage();
+                }
             }
         }
 
@@ -35,6 +39,12 @@
             $this->PDO();
             $response = $this->db->query($sql);
             return $response->fetchAll(\PDO::FETCH_CLASS, $class_name);
+        }
+
+        public function queryAssoc($sql){
+            $this->PDO();
+            $response = $this->db->query($sql);
+            return $response->fetchAll(\PDO::FETCH_ASSOC);
         }
 
         public function prepare($sql, $values, $class_name){

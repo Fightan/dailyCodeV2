@@ -1,21 +1,23 @@
 <?php
     namespace app\models\entity;
-    use app\EntityRepository;
-    use app\app;
-    class sujet extends EntityRepository{
+    use app\models\repository\EntityRepository;
+
+    class Sujet extends EntityRepository{
         protected $id_sujet;
         protected $nom_sujet;
         protected $message;
+        protected $categories;
         protected $auteur;
         protected $reponses;
         protected $date;
-        const TABLE = "forum";
+        protected static $table = "forum";
        
-        public function __construct($id_sujet = "00000", $nom_sujet = "New subject", $message = "New message", $auteur = "Anonym", $reponses = 0, $date = "Today"){
-            if($id_sujet !== "00000"){
+        public function __construct($id_sujet = "0", $nom_sujet = "New subject", $message = "New message", $categories = "1", $auteur = "Anonym", $reponses = 0, $date = "Today"){
+            if($id_sujet !== "0"){
                 $this->id_sujet = $id_sujet;
                 $this->nom_sujet = $nom_sujet;
                 $this->message = $message;
+                $this->categories = $categories;
                 $this->auteur = $auteur;
                 $this->reponses = $reponses;
                 $this->date = $date;
@@ -30,6 +32,11 @@
         public function getNom_sujet()
         {
             return $this->nom_sujet;
+        }
+
+        public function getCategories()
+        {
+            return $this->categories;
         }
 
         public function getAuteur()
@@ -76,6 +83,24 @@
         //     $this->date = $date;
         //     return $this;
         // }
+
+        /**
+         * Get the value of table
+         */ 
+        public function getTable()
+        {
+                return self::$table;
+        }
+
+        /**
+         * Set the value of table
+         *
+         * @return  self
+         */ 
+        public function setTable($table)
+        {
+                self::$table = $table;
+        }
     }
 
 ?>

@@ -15,13 +15,28 @@
                 <a class="link" href="a-propos"><div class="link d-flex justify-content-center align-items-center"><span>À propos</span></div></a>
             </div>
             <div class="login col-2 d-flex justify-content-end">
-                <a href="compte">
-                <div class="link d-flex justify-content-center align-items-center">
-                        <span>Login
-                            <i id="login" class="fa-solid fa-lg fa-arrow-right-to-bracket"></i>
-                        </span>
-                    </div>
-                </a>
+                <?php
+                    if(isset($_SESSION["user"])){
+                        $method = "deconnexion?p=".ltrim($_SERVER["REQUEST_URI"], "/");
+                        $phrase = "Déconnexion";
+                    }else{
+                        if(!isset($_GET["p"])){
+                            $method = "connexion?p=".ltrim($_SERVER["REQUEST_URI"], "/");
+                        }else{
+                            $method = "connexion?p=".$_GET["p"];
+                        }
+                        $phrase = "Connexion";
+                    }
+                    echo <<<html
+                        <a href="/$method">
+                            <div id="compte" class="link d-flex justify-content-center align-items-center">
+                                <span>$phrase
+                                    <i id="login" class="fa-solid fa-lg fa-arrow-right-to-bracket"></i>
+                                </span>
+                            </div>
+                        </a>
+                    html;
+                ?>
             </div>
         </div>
     </div>
