@@ -17,8 +17,10 @@
             <div class="login col-2 d-flex justify-content-end">
                 <?php
                     if(isset($_SESSION["user"])){
-                        $method = "deconnexion?p=".ltrim($_SERVER["REQUEST_URI"], "/");
-                        $phrase = "Déconnexion";
+                        // $method = "deconnexion?p=".ltrim($_SERVER["REQUEST_URI"], "/");
+                        $method = "compte";
+                        $phrase = "Compte";
+                        $icon = "fa-solid fa-circle-user";
                     }else{
                         if(!isset($_GET["p"])){
                             $method = "connexion?p=".ltrim($_SERVER["REQUEST_URI"], "/");
@@ -26,12 +28,17 @@
                             $method = "connexion?p=".$_GET["p"];
                         }
                         $phrase = "Connexion";
+                        $icon = "fa-solid fa-lg fa-arrow-right-to-bracket";
+                    }
+                    if($match["target"] == "compte"){
+                        $method = "deconnexion?p=accueil";
+                        $phrase = "Déconnexion";
                     }
                     echo <<<html
                         <a href="/$method">
                             <div id="compte" class="link d-flex justify-content-center align-items-center">
                                 <span>$phrase
-                                    <i id="login" class="fa-solid fa-lg fa-arrow-right-to-bracket"></i>
+                                    <i id="login" class="$icon"></i>
                                 </span>
                             </div>
                         </a>

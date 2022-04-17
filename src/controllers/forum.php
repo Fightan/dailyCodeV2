@@ -38,6 +38,9 @@
         $categories = implode(", ", $_POST["categories"]);
         $sujet = new Sujet(hash("md5", $_POST["title"].random_bytes(10)), $_POST["title"], $_POST["editor"], $categories, $_SESSION["user"]->username, "0", date("Y-m-d H:i:s"));
         $sujet->add();
+
+        $userStats->setNombreSujets($userStats->nombreSujets+1);
+        $userStats->update("id = ".$userStats->id);
         
         Message::setTable("sujet".$sujet->id_sujet);
         Message::createTable();

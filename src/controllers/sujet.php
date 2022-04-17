@@ -23,7 +23,7 @@
 
     if(isset($_GET["m"])){
         $sujetGet = $_GET["m"];
-        if(substr($sujetGet, 0, 5) === "sujet"){
+        if(substr($sujetGet, 0, 5) === "sujet" && Message::getTable() !== "messages"){
             $id_sujet = substr($sujetGet, 5);
             $sujet = Sujet::select("*", 'id_sujet = "'.$id_sujet.'"', "");
             if($sujet == null){
@@ -43,6 +43,9 @@
                 if(isset($_POST["editor"])){
                     $message = new Message(hash("md5", $_SESSION["user"]->username.random_bytes(10)), $_POST["editor"], $_SESSION["user"]->username, date("Y-m-d H:i:s"));
                     $message->add();
+
+                    $userStats->setNombreMessages($userStats->getNombreMessages() + 1);
+                    $userStats->update("id = ".$userStats->id);
                 }
 
                 $messages = Message::all();
@@ -74,10 +77,12 @@
     }
 
     //On affiche les sujets par nombre de 10 par page
-    if($page > 1){
-        $sujets = Message::select("*", "", "date DESC LIMIT 10 OFFSET ".(($page-1)*10));
-    }else{
-        $sujets = Message::select("*", "", "date DESC LIMIT 10");
+    if($sujetExists){
+        if($page > 1){
+            $sujets = Message::select("*", "", "date DESC LIMIT 10 OFFSET ".(($page-1)*10));
+        }else{
+            $sujets = Message::select("*", "", "date DESC LIMIT 10");
+        }
     }
 
     require "../public/views/share/header.php";

@@ -27,6 +27,21 @@
             app::DB()->prepare($sql, $array, get_called_class());
         }
 
+        public function update($where){
+            $attributes = "";
+            $array = array();
+
+            foreach(get_object_vars($this) as $name => $attr){
+                if($name != "id"){
+                    $attributes .= $name.' = "'.$attr.'", ';
+                }
+            }
+            $attributes = rtrim($attributes, ", ");
+
+            $sql = "UPDATE ".static::$table." SET ".$attributes." WHERE ".$where.";";
+            app::DB()->prepare($sql, $array, get_called_class());
+        }
+
         public static function select($select, $where, $orderBy){
             $sql = "SELECT ".$select." FROM ".static::$table;
             if($where != ""){
@@ -48,7 +63,7 @@
             return app::DB()->queryAssoc($sql)[0]["COUNT(*)"];
         }
 
-        public static function createTable(){
+        public static function createTable($type = "TEXT"){
             $primaryKey = "";
             $names = "";
 
@@ -57,11 +72,12 @@
                     $primaryKey = '"'.$name.'"';
                 }
                 if($name != "table"){
-                    $names .= '"'.$name.'" TEXT, ';
+                    $names .= '"'.$name.'" '.$type.', ';
                 }
             }
 
             $sql ="CREATE TABLE IF NOT EXISTS ".static::$table." (".$names." PRIMARY KEY(".$primaryKey."));";
+            echo $sql;
             app::DB()->query($sql , get_called_class());
         }
 

@@ -1,5 +1,6 @@
 <?php
     use app\models\entity\User;
+    use app\models\entity\UserStats;
 
     $titre = "Inscription";
     app\app::addRessource("style/inscription.less");
@@ -48,6 +49,13 @@
             if($isSendable){ //(2)
                 $user = new User(hash("md5", $username), $username, $email, password_hash($password, PASSWORD_BCRYPT), 2);
                 $user->add();
+
+                UserStats::setTable("user".$user->username);
+                echo UserStats::getTable();
+                UserStats::createTable();
+                $userStats = new UserStats(1, 0, 0, 0, 0, date("Y-m-d"));
+                $userStats->add();
+
                 $_SESSION["user"] = $user;
                 $inscription = false; //(3)
                 header("refresh:1;url=".$_POST["p"]);
