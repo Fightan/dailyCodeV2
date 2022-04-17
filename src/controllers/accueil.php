@@ -6,5 +6,3 @@
     require "../public/views/share/header.php";
     require "../public/views/accueil.php";
     require "../public/views/share/footer.php";
-
-?>
