@@ -50,7 +50,7 @@
             <p>Daysi : Rien de spécial a part que je trouve Jalal vraiment incroyablement talentueux. </p>
 
 
-            <small>Article rédigé par Jacques La Virandière - Avril 2022 pour Daily Code </small>
+            <small>Article rédigé par Marion Lecluze - Avril 2022 pour Daily Code </small>
 
 
 
