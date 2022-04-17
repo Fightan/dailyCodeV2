@@ -28,8 +28,15 @@ h2{
 }
 
 h3{
-    font-size: 1.25em;
-    color: #555;
+    font-family: Roboto;
+    font-weight: bolder;
+    font-size: 1.85em;
+    text-shadow: 2px 2px #3a3a3a;
+    color: rgb(224, 224, 224);
+    z-index: 10;
+    position: absolute;
+    bottom: 0px;
+    left: 20px;
 }
 
 a{
@@ -55,6 +62,7 @@ a{
 
 
     .card {
+        position: relative;
         margin: 10px;
         padding: 0%;
         border-radius: 10px;
@@ -80,25 +88,6 @@ a{
         -o-transform:scale(1.06); /* Opera */
         transform:scale(1.06);
     }
-
-    .card-text {
-        color: @ternaryColor;
-        line-height: 1.6rem;
-        
-    }
-
-    .centered {
-        position: absolute;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        top: 70%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 3.25em;
-        font-weight: bolder;
-        color: @secondaryColor;
-      }
 
       .text-information {
         text-align: center;
