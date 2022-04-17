@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+
 
 body{
     font-family: Roboto, Verdana, sans-serif;
@@ -15,18 +18,24 @@ h1, h2, h3, h4, h5, h6{
 }
 
 h1{
-    font-size: 2em;
-    color: #000;
+    text-align: center;
+    font-size: 3em;
+    color: @secondaryColor;
 }
 
 h2{
-    font-size: 1.50em;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 1.55em;
     color: #333;
 }
 
 h3{
-    font-size: 1.25em;
-    color: #555;
+    text-align: center;
+    font-family: Roboto, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+    font-size: 1.10em;
+    color: #333;
 }
 
 a{
@@ -42,3 +51,49 @@ a{
 @primaryColor: #88CCF1;
 @secondaryColor: #3587A4;
 @ternaryColor: #39393A;
+
+
+#contact {
+
+    min-height: 60vh;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding: 0px;
+
+
+    .form-group {
+        padding: 15px;
+        margin-top: 50px;
+        margin-right: auto;
+        margin-left: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #c3e3f5;
+        border-radius: 10px;
+        width: 50%;
+        box-shadow: 2px 3px 3px rgb(56, 56, 56);
+    }
+
+    .form-control {
+        margin-top: 10px;
+    }
+
+
+    label {
+        margin-top: 18px;
+        margin-bottom: 5px;
+    }
+
+    .btn {
+        margin-top: 15px;
+    }
+
+    .green{
+        border: green 3px solid;
+      }
+    .red{
+        border: red 3px solid;
+    }
+}
+
