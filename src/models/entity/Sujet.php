@@ -24,70 +24,150 @@
             }
         }
 
+        /**
+         * Get the value of id_sujet
+         */ 
         public function getId_sujet()
         {
-            return $this->id_sujet;
+                return $this->id_sujet;
         }
-        
+
+        /**
+         * Set the value of id_sujet
+         *
+         * @return  self
+         */ 
+        public function setId_sujet($id_sujet)
+        {
+                $this->id_sujet = $id_sujet;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of nom_sujet
+         */ 
         public function getNom_sujet()
         {
-            return $this->nom_sujet;
+                return $this->nom_sujet;
         }
 
+        /**
+         * Set the value of nom_sujet
+         *
+         * @return  self
+         */ 
+        public function setNom_sujet($nom_sujet)
+        {
+                $this->nom_sujet = $nom_sujet;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of message
+         */ 
+        public function getMessage()
+        {
+                return $this->message;
+        }
+
+        /**
+         * Set the value of message
+         *
+         * @return  self
+         */ 
+        public function setMessage($message)
+        {
+                $this->message = $message;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of categories
+         */ 
         public function getCategories()
         {
-            return $this->categories;
+                return $this->categories;
         }
 
+        /**
+         * Set the value of categories
+         *
+         * @return  self
+         */ 
+        public function setCategories($categories)
+        {
+                $this->categories = $categories;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of auteur
+         */ 
         public function getAuteur()
         {
-            return $this->auteur;
+                return $this->auteur;
         }
-        
+
+        /**
+         * Set the value of auteur
+         *
+         * @return  self
+         */ 
+        public function setAuteur($auteur)
+        {
+                $this->auteur = $auteur;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of reponses
+         */ 
         public function getReponses()
         {
-            return $this->reponses;
+                return $this->reponses;
         }
 
+        /**
+         * Set the value of reponses
+         *
+         * @return  self
+         */ 
+        public function setReponses($reponses)
+        {
+                $this->reponses = $reponses;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of date
+         */ 
         public function getDate()
         {
-            return $this->date;
+                return $this->date;
         }
 
-        // public function setId_sujet($id_sujet)
-        // {
-        //     $this->id_sujet = $id_sujet;
-        //     return $this;
-        // }
+        /**
+         * Set the value of date
+         *
+         * @return  self
+         */ 
+        public function setDate($date)
+        {
+                $this->date = $date;
 
-        // public function setNom_sujet($nom_sujet)
-        // {
-        //     $this->nom_sujet = $nom_sujet;
-        //     return $this;
-        // }
-
-        // public function setAuteur($auteur)
-        // {
-        //     $this->auteur = $auteur;
-        //     return $this;
-        // }
-
-        // public function setReponses($reponses)
-        // {
-        //     $this->reponses = $reponses;
-        //     return $this;
-        // }
-
-        // public function setDate($date)
-        // {
-        //     $this->date = $date;
-        //     return $this;
-        // }
+                return $this;
+        }
 
         /**
          * Get the value of table
          */ 
-        public function getTable()
+        public static function getTable()
         {
                 return self::$table;
         }
@@ -97,7 +177,7 @@
          *
          * @return  self
          */ 
-        public function setTable($table)
+        public static function setTable($table)
         {
                 self::$table = $table;
         }

@@ -40,7 +40,7 @@
                         }
                         echo <<<html
                             <tr>
-                                <td class="link"><a href="sujet?m=$sujet->id_sujet">$sujet->nom_sujet</a></td>
+                                <td class="link"><a href="sujet?m=sujet$sujet->id_sujet">$sujet->nom_sujet</a></td>
                                 <td>$sujet->auteur</td>
                                 <td class="text-center">$sujet->reponses</td>
                                 <td>$sujet->categories</td>
@@ -51,7 +51,14 @@
                                         <i class="icon fa-solid fa-ellipsis-vertical"></i>
                                         <div class="dp-menu">
                                             <a href="sujet?m=$sujet->id_sujet" class="item voir">Voir</a>
+
+                        html;
+                        if($visibility === "d-block"){
+                            echo <<<html
                                             <span class="item delete $visibility" data-id="$sujet->id_sujet">Supprimer</span>
+                            html;
+                        }
+                        echo <<<html
                                         </div>
                                     </div>
                                 </td>

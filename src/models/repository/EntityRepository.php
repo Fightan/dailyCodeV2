@@ -23,8 +23,7 @@
             }
             $attributes = rtrim($attributes, ", ");
 
-            $sql = "INSERT INTO ".static::$table." VALUES (".$attributes.")";
-            echo $sql;
+            $sql = "INSERT INTO ".static::$table." VALUES (".$attributes.");";
             app::DB()->prepare($sql, $array, get_called_class());
         }
 
@@ -49,19 +48,26 @@
             return app::DB()->queryAssoc($sql)[0]["COUNT(*)"];
         }
 
-        public static function create(){
+        public static function createTable(){
             $primaryKey = "";
             $names = "";
 
-            foreach(get_object_vars(new static) as $name => $attr){
+            foreach(get_class_vars(get_called_class()) as $name => $attr){
                 if($primaryKey == ""){
                     $primaryKey = '"'.$name.'"';
                 }
-                $names .= '"'.$name.'", ';
+                if($name != "table"){
+                    $names .= '"'.$name.'" TEXT, ';
+                }
             }
 
             $sql ="CREATE TABLE IF NOT EXISTS ".static::$table." (".$names." PRIMARY KEY(".$primaryKey."));";
-            echo $sql;
+            app::DB()->query($sql , get_called_class());
+        }
+
+        public static function dropTable(){
+            $sql = "DROP TABLE IF EXISTS ".static::$table;
+            app::DB()->query($sql, get_called_class());
         }
     } 
 

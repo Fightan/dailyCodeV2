@@ -28,27 +28,37 @@
         $sujet = sujet::select("*", 'id_sujet = "'.$_POST["delete"].'"', "")[0];
         if($sujet->auteur === $_SESSION["user"]->username){
             $sujet->delete('id_sujet = "'.$_POST["delete"].'"');
+            Message::setTable("sujet".$sujet->id_sujet);
+            Message::dropTable();
         }
     }
 
     //Ajout d'un nouveau sujet
     if(isset($_POST["title"]) && isset($_POST["editor"]) && isset($_POST["categories"])){
         $categories = implode(", ", $_POST["categories"]);
-        $sujet = new Sujet(hash("md5", $_POST["title"]), $_POST["title"], $_POST["editor"], $categories, $_SESSION["user"]->username, "0", date("Y-m-d H:i:s"));
-
-        Message::setTable("coucou");
-        // $sujet->add();
-
-        // Message::create();
+        $sujet = new Sujet(hash("md5", $_POST["title"].random_bytes(10)), $_POST["title"], $_POST["editor"], $categories, $_SESSION["user"]->username, "0", date("Y-m-d H:i:s"));
+        $sujet->add();
+        
+        Message::setTable("sujet".$sujet->id_sujet);
+        Message::createTable();
     }
 
     //On récupère le nombre de pages afin d'afficher les boutons 1, 2, 3... pour changer de page
     $nombreSujets = Sujet::count();
     $pages = 1;
     if($nombreSujets > 10){
-        $pages = (int) ($nombreSujets/10) + 1;
+        if($nombreSujets%10 == 0){
+            $pages = $nombreSujets/10;
+        }else{
+            $pages = (int)($nombreSujets/10)+1;
+        }
+    }else{
+        $pages = 1;
     }
     
+    //1 - 9 --> 0 --> 1
+    //10 - 19 --> 2
+    //20 - 29 --> 3
     //On récupère la page sélectionnée actuellement
     if(isset($_GET["page"])){
         $page = $_GET["page"];
@@ -58,9 +68,9 @@
 
     //On affiche les sujets par nombre de 10 par page
     if($page > 1){
-        $sujets = Sujet::select("*", "", "date DESC LIMIT ".($page*10)." OFFSET 10");
+        $sujets = Sujet::select("*", "", "date DESC LIMIT 10 OFFSET ".(($page-1)*10));
     }else{
-        $sujets = Sujet::select("*", "", "date DESC");
+        $sujets = Sujet::select("*", "", "date DESC LIMIT 10");
     }
 
     //On récupère toutes les catégories pour les afficher dans l'ajout d'un sujet

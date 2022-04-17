@@ -53,6 +53,7 @@ a{
     border: 1px solid @forumColor;
     flex-direction: row;
     margin-bottom: 20px;
+    animation: grow 0.5s;
 
     .col-6{
         padding: 0px;
@@ -304,8 +305,14 @@ input[type=checkbox]{
         margin-top: 30px;
         margin-bottom: 25px;
         border-radius: 10px;
+        // height: 200px;
+        min-height: 200px;
         border: 1px solid @forumColor;
         background-color: white;
+    }
+
+    .trumbowyg-editor{
+        min-height: 200px;
     }
 
     .wrong{

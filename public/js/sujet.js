@@ -1,7 +1,4 @@
-var isTitleValid = false;
-var isCategoryValid = false;
 var isMessageValid = false;
-var isCategoriesShown = false;
 
 var regexTitle = /^[A-zÀ-ù0-9 '?!]{5,40}$/;
 
@@ -33,20 +30,6 @@ $(function(){
 
     $("#sendForm").attr("disabled", true);
 
-    $("#title").on("input", function(){
-        var val = $(this).val();
-
-        if(!regexTitle.test(val)){
-            $(this).addClass("invalid").removeClass("valid");
-            isTitleValid = false;
-        }else{
-            $(this).addClass("valid").removeClass("invalid");
-            isTitleValid = true;
-        }
-
-        checkForm();
-    });
-
     $(".button").on("change", function(){
         if($(".button>input[type=checkbox]:checked").length > 0){
             isCategoryValid = true;
@@ -76,6 +59,7 @@ $(function(){
         $(".popup").addClass("showPopup");
         var id = $(this).attr("data-id");
         $("#delete").val(id);
+        console.log(id);
         e.stopPropagation(); 
     })
 
@@ -90,7 +74,7 @@ $(function(){
     })
 
     function checkForm(){
-        if(isTitleValid && isCategoryValid && isMessageValid){
+        if(isMessageValid){
             $("#sendForm").attr("disabled", false);
             $("#sendForm").addClass("sendFormActive").removeClass("sendFormInactive");
         }else{
