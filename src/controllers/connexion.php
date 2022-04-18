@@ -38,7 +38,7 @@
                 $visibilityPassword = "visible"; //(1)
             }else{
                 $connexion = false; //(2)
-                header("refresh:1;url=".$_POST["p"]); //(4)
+                header("refresh:1;url=".$baseUrl.$_POST["p"]); //(4)
             }
         }
 

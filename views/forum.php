@@ -102,10 +102,10 @@
             </div>
         </div>
         <?php
-            $currentSite = ltrim($_SERVER["REQUEST_URI"], "/");
+            $currentSite = $match["target"];
             if(!$nouveauSujet){
                 echo <<<html
-                    <h2><a id="connect" href="connexion?p=$currentSite">Connectez-vous&nbsp;</a>pour poster un nouveau sujet</h2>
+                    <h2><a id="connect" href="connexion?p=/$currentSite">Connectez-vous&nbsp;</a>pour poster un nouveau sujet</h2>
                 html;
             }else{
                 echo <<<html

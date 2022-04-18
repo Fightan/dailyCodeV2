@@ -77,7 +77,6 @@
             }
 
             $sql ="CREATE TABLE IF NOT EXISTS ".static::$table." (".$names." PRIMARY KEY(".$primaryKey."));";
-            echo $sql;
             app::DB()->query($sql , get_called_class());
         }
 

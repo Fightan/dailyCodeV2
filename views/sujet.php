@@ -140,11 +140,11 @@
             </div>
         </div>
         <?php
-            $currentSite = ltrim($_SERVER["REQUEST_URI"], "/");
+            $currentSite = ltrim($_SERVER["REQUEST_URI"], "/dailyCode");
             if($sujetExists){
                 if(!$nouveauMessage){
                         echo <<<html
-                            <h2><a id="connect" href="connexion?p=$currentSite">Connectez-vous&nbsp;</a>pour poster un nouveau message</h2>
+                            <h2><a id="connect" href="connexion?p=/$currentSite">Connectez-vous&nbsp;</a>pour poster un nouveau message</h2>
                         html;
                 }else{
                     echo <<<html

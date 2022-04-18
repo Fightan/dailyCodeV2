@@ -23,7 +23,7 @@
                         $icon = "fa-solid fa-circle-user";
                     }else{
                         if(!isset($_GET["p"])){
-                            $method = $baseUrl."/connexion?p=".ltrim($_SERVER["REQUEST_URI"], $baseUrl."/");
+                            $method = $baseUrl."/connexion?p=".str_replace($baseUrl, "", $_SERVER['REQUEST_URI']);
                         }else{
                             $method = $baseUrl."/connexion?p=".$_GET["p"];
                         }

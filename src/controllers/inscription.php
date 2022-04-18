@@ -57,7 +57,7 @@
 
                 $_SESSION["user"] = $user;
                 $inscription = false; //(3)
-                header("refresh:1;url=".$_POST["p"]);
+                header("refresh:1;url=".$baseUrl.$_POST["p"]);
             }
         }
     //Si l'utilisateur est connecté, on le renvoie vers la page d'accueil
