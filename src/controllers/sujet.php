@@ -23,7 +23,7 @@
 
     if(isset($_GET["m"])){
         $sujetGet = $_GET["m"];
-        if(substr($sujetGet, 0, 5) === "sujet" && Message::getTable() !== "messages"){
+        if(substr($sujetGet, 0, 5) === "sujet"){
             $id_sujet = substr($sujetGet, 5);
             $sujet = Sujet::select("*", 'id_sujet = "'.$id_sujet.'"', "");
             if($sujet == null){
@@ -51,8 +51,6 @@
                 $messages = Message::all();
                 $titre = $sujet->nom_sujet;
             }
-        }else{
-            $sujetExists = false;
         }
     }
 

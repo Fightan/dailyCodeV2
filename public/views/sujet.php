@@ -10,11 +10,19 @@
                 <h1 class="text-start">$titre</h1>
             html;
 
-            $rank = User::select("*", ' username = "'.$sujet->auteur.'"', "")[0]->rank;
-            if($rank == "2"){
-                $rank = "Utilisateur";
-            }else{
-                $rank = "Administrateur";
+            $rank = User::select("*", ' username = "'.$sujet->auteur.'"', "");
+   	    
+    	    if($rank != null){
+    		$rank = $rank[0]->rank;
+    		           	
+        		if($rank == "1"){
+                    print_r($rank);
+                    $rank = "Administrateur";
+                }else{
+                    $rank = "Utilisateur";
+                }
+    	    }else{
+                    $rank = "Utilisateur";
             }
             $date = date("Y-m-d", strtotime($sujet->date));
             if($date === date("Y-m-d")){
@@ -51,13 +59,23 @@
                     }
                 }else{
                     $visibility = "d-none";
+                    $icon = "";
+                    $dpStyle = "pointer-events:none;";
                 }
 
-                $rank = User::select("*", ' username = "'.$message->auteur.'"', "")[0]->rank;
-                if($rank == "2"){
-                    $rank = "Utilisateur";
+                $rank = User::select("*", ' username = "'.$sujet->auteur.'"', "");
+            
+                if($rank != null){
+                $rank = $rank[0]->rank;
+                            
+                    if($rank == "1"){
+                        print_r($rank);
+                        $rank = "Administrateur";
+                    }else{
+                        $rank = "Utilisateur";
+                    }
                 }else{
-                    $rank = "Administrateur";
+                        $rank = "Utilisateur";
                 }
 
                 echo <<<html

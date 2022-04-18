@@ -37,7 +37,7 @@
                 $userStats->setVisitsAllTime($userStats->visitsAllTime+1);
                 if($userStats->todayDate !== date("Y-m-d")){
                     $userStats->setTodayDate(date("Y-m-d"));
-                    $userStats->setVisitsToday(0);
+                    $userStats->setVisitsToday("0");
                 }
                 $userStats->setVisitsToday($userStats->visitsToday+1);
                 $userStats->update("id = ".$userStats->id);

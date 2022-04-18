@@ -4,25 +4,25 @@
     <div class="container">
         <div class="row">
 
-            <div class="card" style="width: 50%; height: 25rem;">
+            <a href="articles?article=4" class="card" style="width: 50%; height: 25rem;">
                 <img class="card-img-top" src="images/program.png" alt="Card image cap">
                 <h3>Des codeurs en herbe au CCI de DREUX</h3>
-            </div>
+            </a>
 
-            <div class="card" style="width: 45%; height: 25rem;">
+            <a href="articles?article=3" class="card" style="width: 45%; height: 25rem;">
                 <img class="card-img-top" src="images/intelligenceart.jpg" alt="Card image cap">
                 <h3>L'intelligence artificielle a des beaux jours devant elle</h3>
-            </div>
+            </a>
 
-            <div class="card" style="width: 30%; height: 25rem;">
+            <a href="articles?article=2" class="card" style="width: 30%; height: 25rem;">
                 <img class="card-img-top" src="images/phpimg.jpeg" alt="Card image cap">
                 <h3>Php le meilleur language de tous les temps</h3>
-            </div>
+            </a>
 
-            <div class="card" style="width: 65%; height: 25rem;">
+            <a href="articles?article=1" class="card" style="width: 65%; height: 25rem;">
                 <img class="card-img-top" src="images/metaverse.jpg" alt="Card image cap">
                 <h3>Les métaverses et le web 3.0 : on en parle !</h3>
-            </div>
+            </a>
 
             <p class="text-information">
                 Tous nos derniers articles sur la programmation et le monde du digital !
