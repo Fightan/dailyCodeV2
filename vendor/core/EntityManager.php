@@ -1,5 +1,6 @@
 <?php
     namespace app;
+    use PDO;
 
     class EntityManager{
 
@@ -29,6 +30,8 @@
                 try{
                     // $this->db = new \PDO("mysql:host=".$this->db_host.";dbname=".$this->db_name.";charset=utf8", $this->db_user, $this->db_pass);
                     $this->db = new \PDO('sqlite:data.db');
+                    $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    $this->db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
                 }catch(PDOException $exception){
                     echo "Erreur : " . $exception->getMessage();
                 }

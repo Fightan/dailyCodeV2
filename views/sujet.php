@@ -16,7 +16,6 @@
     		$rank = $rank[0]->rank;
     		           	
         		if($rank == "1"){
-                    print_r($rank);
                     $rank = "Administrateur";
                 }else{
                     $rank = "Utilisateur";
@@ -69,7 +68,6 @@
                 $rank = $rank[0]->rank;
                             
                     if($rank == "1"){
-                        print_r($rank);
                         $rank = "Administrateur";
                     }else{
                         $rank = "Utilisateur";
