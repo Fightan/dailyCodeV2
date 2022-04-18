@@ -51,7 +51,6 @@
                 $user->add();
 
                 UserStats::setTable("user".$user->username);
-                echo UserStats::getTable();
                 UserStats::createTable();
                 $userStats = new UserStats(1, 0, 0, 0, 0, date("Y-m-d"));
                 $userStats->add();
