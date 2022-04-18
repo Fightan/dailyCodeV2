@@ -9,7 +9,7 @@
     
     //Déclare un nouveau rooter
     $rooter = new AltoRouter();
-    $baseUrl = "";
+    $baseUrl = "/dailyCode";
     
     //Récupère le slug
     $rooter->map("GET", $baseUrl."/", "accueil");
