@@ -50,7 +50,7 @@
                                         <input class="d-none showMenu" type="checkbox"/>
                                         <i class="icon fa-solid fa-ellipsis-vertical"></i>
                                         <div class="dp-menu">
-                                            <a href="sujet?m=$sujet->id_sujet" class="item voir">Voir</a>
+                                            <a href="sujet?m=sujet$sujet->id_sujet" class="item voir">Voir</a>
 
                         html;
                         if($visibility === "d-block"){

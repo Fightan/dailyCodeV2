@@ -51,7 +51,11 @@
                 $messages = Message::all();
                 $titre = $sujet->nom_sujet;
             }
+        }else{
+            $sujetExists = false;
         }
+    }else{
+        $sujetExists = false;
     }
 
     //On récupère le nombre de pages afin d'afficher les boutons 1, 2, 3... pour changer de page
