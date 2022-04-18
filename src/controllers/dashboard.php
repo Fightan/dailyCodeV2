@@ -2,12 +2,12 @@
 
 $titre = "Dashboard";
 
-app\app::addRessource("style/dashboard.less");
-app\app::addRessource("js/dashboard.js");
+app\app::addRessource("./assets/style/dashboard.less");
+app\app::addRessource("./assets/js/dashboard.js");
 
-require "../public/views/share/header.php";
-require "../public/views/dashboard.php";
-require "../public/views/share/footer.php";
+require "./views/share/header.php";
+require "./views/dashboard.php";
+require "./views/share/footer.php";
 
 
 

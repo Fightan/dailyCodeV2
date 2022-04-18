@@ -2,8 +2,8 @@
     use app\models\entity\User;
 
     $titre = "Connexion";
-    app\app::addRessource("style/connexion.less");
-    app\app::addRessource("js/connexion.js");
+    app\app::addRessource("./assets/style/connexion.less");
+    app\app::addRessource("./assets/js/connexion.js");
 
     //Afficher ou non les erreurs concernant le nom d'utilisateur ou mot de passe (1)
     $visibilityUsername = "hidden";

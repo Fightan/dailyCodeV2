@@ -3,8 +3,8 @@
     use app\models\entity\UserStats;
 
     $titre = "Compte";
-    app\app::addRessource("style/compte.less");
-    app\app::addRessource("js/compte.js");
+    app\app::addRessource("./assets/style/compte.less");
+    app\app::addRessource("./assets/js/compte.js");
 
     if(isset($_SESSION["user"])){
         $user = $_SESSION["user"];

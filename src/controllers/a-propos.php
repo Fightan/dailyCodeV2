@@ -1,7 +1,9 @@
 <?php
     $titre = "A propos";
-    app\app::addRessource("style/a-propos.less");
-    app\app::addRessource("js/a-propos.js");
-    require "../public/views/share/header.php";
+    app\app::addRessource("./assets/style/a-propos.less");
+    app\app::addRessource("./assets/js/a-propos.js");
+    require "./views/share/header.php";
     require("./views/a-propos.php");
-    require "../public/views/share/footer.php";
+    require "./views/share/footer.php";
+
+?>

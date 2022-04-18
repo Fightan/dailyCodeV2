@@ -3,8 +3,8 @@
 	use app\models\repository\EntityRepository;
 
 	$titre = "Articles";
-	app\app::addRessource("style/articles.less");
-	app\app::addRessource("js/articles.js");
+	app\app::addRessource("./assets/style/articles.less");
+	app\app::addRessource("./assets/js/articles.js");
 
 
 	$articleExists = true;

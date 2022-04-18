@@ -3,8 +3,8 @@
     use app\models\entity\UserStats;
 
     $titre = "Inscription";
-    app\app::addRessource("style/inscription.less");
-    app\app::addRessource("js/inscription.js");
+    app\app::addRessource("./assets/style/inscription.less");
+    app\app::addRessource("./assets/js/inscription.js");
 
     //Afficher ou non les erreurs concernant le nom d'utilisateur, l'email ou le mot de passe (1)
     $visibilityUsername = "hidden";

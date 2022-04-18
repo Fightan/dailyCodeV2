@@ -7,13 +7,13 @@
             <div class="d-flex align-items-center justify-content-center">
                 <div class="row">
                     <div class="col-md-6 boss-box1">
-                        <img src="images/ceo-1.jpg" alt="" class="boss1">
+                        <img src="./assets/images/ceo-1.jpg" alt="" class="boss1">
                         <div class="divider"></div>
                         <div class="name-boss">Pascal Cravate</div>
                         <div class="title-boss">Rédacteur en chef Daily Code</div>
                     </div>
                     <div class="col-md-6 boss-box2">
-                        <img src="images/ceo-2.jpg" alt="" class="boss2">
+                        <img src="./assets/images/ceo-2.jpg" alt="" class="boss2">
                         <div class="divider"></div>
                         <div class="name-boss">Marion Lecluze</div>
                         <div class="title-boss">Journaliste Daily Code</div>
@@ -34,11 +34,11 @@
 
             <h1>Ils parlent de nous</h1>
 
-            <img class="logo-1" src="images/numera.png" alt="">
-            <img class="logo-2" src="images/leparisien.png" alt="">
-            <img class="logo-3" src="images/pressecitron.png" alt="">
-            <img class="logo-4" src="images/tf1.png" alt="">
-            <img class="logo-5" src="images/journalgeek.jpg" alt="">
+            <img class="logo-1" src="./assets/images/numera.png" alt="">
+            <img class="logo-2" src="./assets/images/leparisien.png" alt="">
+            <img class="logo-3" src="./assets/images/pressecitron.png" alt="">
+            <img class="logo-4" src="./assets/images/tf1.png" alt="">
+            <img class="logo-5" src="./assets/images/journalgeek.jpg" alt="">
 
         </div>
     </div>

@@ -2,27 +2,28 @@
     //Afficher les erreurs
     ini_set("display_errors", 1);
     //Fait des require des fichiers .php du dossier /vendor
-    require("../vendor/autoload.php");
+    require("vendor/autoload.php");
     session_start();
 
     use app\models\entity\UserStats;
     
     //Déclare un nouveau rooter
     $rooter = new AltoRouter();
+    $baseUrl = "";
     
     //Récupère le slug
-    $rooter->map("GET", "/", "accueil");
-    $rooter->map("GET", "/accueil", "accueil");
-    $rooter->map("GET", "/articles", "articles");
-    $rooter->map("GET|POST", "/forum", "forum");
-    $rooter->map("GET|POST", "/sujet", "sujet");
-    $rooter->map("GET", "/contact", "contact");
-    $rooter->map("GET", "/compte", "compte");
-    $rooter->map("GET|POST", "/connexion", "connexion");
-    $rooter->map("GET", "/deconnexion", "deconnexion");
-    $rooter->map("GET|POST", "/inscription", "inscription");
-    $rooter->map("GET", "/a-propos", "a-propos");
-    $rooter->map("GET", "/dashboard", "dashboard");
+    $rooter->map("GET", $baseUrl."/", "accueil");
+    $rooter->map("GET", $baseUrl."/accueil", "accueil");
+    $rooter->map("GET", $baseUrl."/articles", "articles");
+    $rooter->map("GET|POST", $baseUrl."/forum", "forum");
+    $rooter->map("GET|POST", $baseUrl."/sujet", "sujet");
+    $rooter->map("GET", $baseUrl."/contact", "contact");
+    $rooter->map("GET", $baseUrl."/compte", "compte");
+    $rooter->map("GET|POST", $baseUrl."/connexion", "connexion");
+    $rooter->map("GET", $baseUrl."/deconnexion", "deconnexion");
+    $rooter->map("GET|POST", $baseUrl."/inscription", "inscription");
+    $rooter->map("GET", $baseUrl."/a-propos", "a-propos");
+    $rooter->map("GET", $baseUrl."/dashboard", "dashboard");
     $match = $rooter->match();
 
     //A partir d'ici, tous l'affichage fait à partir de require est stocké dans la mémoire tampon
@@ -43,7 +44,7 @@
                 $userStats->update("id = ".$userStats->id);
             }
 
-            require "../src/controllers/{$match["target"]}.php";
+            require "./src/controllers/{$match["target"]}.php";
         }
     }else{
         require "views/404.php";

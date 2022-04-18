@@ -9,8 +9,8 @@
     app::addRessource("https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/ui/trumbowyg.min.css");
     app::addRessource("https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/trumbowyg.min.js");
     app::addRessource("https://www.kryogenix.org/code/browser/sorttable/sorttable.js");
-    app::addRessource("style/forum.less");
-    app::addRessource("js/forum.js");
+    app::addRessource("./assets/style/forum.less");
+    app::addRessource("./assets/js/forum.js");
 
     //Afficher ou non l'interface d'ajout d'un nouveau sujet
     $nouveauSujet = false;
@@ -78,8 +78,8 @@
 
     //On récupère toutes les catégories pour les afficher dans l'ajout d'un sujet
     $categories = Categorie::all();
-    require "../public/views/share/header.php";
-    require "../public/views/forum.php";
-    require "../public/views/share/footer.php";
+    require "./views/share/header.php";
+    require "./views/forum.php";
+    require "./views/share/footer.php";
 
 ?>

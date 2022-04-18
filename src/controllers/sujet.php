@@ -8,8 +8,8 @@
     $titre = "Forum";
     app::addRessource("https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/ui/trumbowyg.min.css");
     app::addRessource("https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/trumbowyg.min.js");
-    app::addRessource("style/sujet.less");
-    app::addRessource("js/sujet.js");
+    app::addRessource("./assets/style/sujet.less");
+    app::addRessource("./assets/js/sujet.js");
 
     //Afficher ou non l'interface d'ajout d'un nouveau message
     $nouveauMessage = false;
@@ -22,8 +22,10 @@
     }
 
     if(isset($_GET["m"])){
+
         $sujetGet = $_GET["m"];
         if(substr($sujetGet, 0, 5) === "sujet"){
+
             $id_sujet = substr($sujetGet, 5);
             $sujet = Sujet::select("*", 'id_sujet = "'.$id_sujet.'"', "");
             if($sujet == null){
@@ -51,7 +53,11 @@
                 $messages = Message::all();
                 $titre = $sujet->nom_sujet;
             }
+        }else{
+            $sujetExists = false;
         }
+    }else{
+        $sujetExists = false;
     }
 
     //On récupère le nombre de pages afin d'afficher les boutons 1, 2, 3... pour changer de page
@@ -83,7 +89,7 @@
         }
     }
 
-    require "../public/views/share/header.php";
-    require "../public/views/sujet.php";
-    require "../public/views/share/footer.php";
+    require "./views/share/header.php";
+    require "./views/sujet.php";
+    require "./views/share/footer.php";
 ?>

@@ -10,8 +10,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
         <link rel="stylesheet" href="style/reset.css">
-        <link rel="stylesheet/less" href="../style/header.less">
-        <link rel="stylesheet/less" href="../style/footer.less">
+        <link rel="stylesheet/less" href="./assets/style/header.less">
+        <link rel="stylesheet/less" href="./assets/style/footer.less">
         <?= app\app::listRessources() ?>
         <script src="https://cdn.jsdelivr.net/npm/less@4.1.1"></script>
     </head>
