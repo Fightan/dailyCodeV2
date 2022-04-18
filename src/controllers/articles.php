@@ -19,6 +19,7 @@
 		}
 	}else{
 		$articleExists = false;
+		$articles = Article::all();
 	}
 
 	require("./views/share/header.php");
