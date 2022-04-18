@@ -39,6 +39,9 @@
                     $message = Message::select("*", 'id = "'.$_POST["delete"].'"', "")[0];
                     if($message->auteur === $_SESSION["user"]->username){
                         $message->delete('id = "'.$_POST["delete"].'"');
+
+                        $sujet->setReponses(Message::count());
+                        $sujet->update('id_sujet = "'.$sujet->id_sujet.'"');
                     }
                 }
 
@@ -48,6 +51,9 @@
 
                     $userStats->setNombreMessages($userStats->getNombreMessages() + 1);
                     $userStats->update("id = ".$userStats->id);
+
+                    $sujet->setReponses(Message::count());
+                    $sujet->update('id_sujet = "'.$sujet->id_sujet.'"');
                 }
 
                 $messages = Message::all();
